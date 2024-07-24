@@ -4,6 +4,40 @@
   
   
   <entry>
+    <title>经典1</title>
+    <link href="/2024/07/23/%E7%BB%8F%E5%85%B81/"/>
+    <url>/2024/07/23/%E7%BB%8F%E5%85%B81/</url>
+    
+    <content type="html"><![CDATA[<p>给定 $n$ 堆东西，每堆有 $a_i$ 个且种类不同。进行如下操作：</p><p>每次从 $n$ 堆东西中选出 $k$ 堆，每堆取走一个。</p><p>询问最多能进行多少次操作。</p><p>结论一：设 $x$ 为操作次数，则 $\sum_{i&#x3D;1}^nmin(a_i, x) \geq kx$ 为 $x$ 合法的充分必要条件。</p><p>必要性显然，下证充分性。</p><p>每次将东西最多的 $k$ 个堆取出一个。贪心成立性的原因在于每次相当于每次将 $a_1, a_2, . . . , a_n$中最大的 $k$ 个元素减一，更新后的数组 $a_i^{‘}$ 满足 $∑^n_{ i&#x3D;1} min(a ^′_i , x − 1) ≥ (x − 1)k$。由数学归纳法可知正确性。</p><p>同时我们可以知道当可以取 $x$ 次一定可以取 $x - 1$ 次，则说明答案具有二段性，可以二分答案找出其中的可操作次数的最大值。</p><p>例题：2024牛客暑期多校第三场A题</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> i64 = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    std::ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    std::cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br><br>    <span class="hljs-type">int</span> n, L, R;<br>    std::cin &gt;&gt; n &gt;&gt; L &gt;&gt; R;<br>    <span class="hljs-function">std::vector&lt;i64&gt; <span class="hljs-title">a</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        std::cin &gt;&gt; a[i];<br>        a[i] = (a[i] - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>    &#125;<br><br>    i64 cnt = (n - R + (R - L - <span class="hljs-number">1</span>)) / (R - L);<br>    i64 l = <span class="hljs-number">0</span>, r = <span class="hljs-number">1E9</span>;<br>    <span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>        i64 mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>;<br>        i64 sum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            sum += std::<span class="hljs-built_in">min</span>(a[i], mid);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (sum &gt;= mid * L) &#123;<br>            l = mid;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            r = mid - <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (l &gt;= cnt) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Yes\n&quot;</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;No\n&quot;</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>经典题型和trick</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>牛客 2024暑期多校第三场题解</title>
+    <link href="/2024/07/23/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA%E9%A2%98%E8%A7%A3/"/>
+    <url>/2024/07/23/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA%E9%A2%98%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>牛客 2024暑期多校第一场题解</title>
     <link href="/2024/07/16/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%E9%A2%98%E8%A7%A3/"/>
     <url>/2024/07/16/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%E9%A2%98%E8%A7%A3/</url>
