@@ -16,21 +16,21 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="无向图边的重定向处理给定一张无向图 $n$ 个节点和 $m$ 条边，q次询问，每次询问关于其子图，询问子图总点数不超过n。 处理时我们将整个子图处理出来往往会花费 $O(nm)$ 时间复杂度，这是无法处理的。 于是我们将无向边重定向，每条边从度数小的节点指向度数大的节点。这样我们可以证明每个节点最多只会有 $O(\sqrt{2m})$ 条出边。这时我们处理出子图就只需要 $O(n\sqrt{m})">
+    <meta name="description" content="倍增给定一个有向图，$n$ 个节点，$n$ 条边（每个点只有一条出边，不一定无环），边权为0或1，询问从每个点出发经过边权为 $0$ 的边的数量或为 $1$ 的数量恰好为 $k$ 时的终点。 如何我们暴力的在图上沿着边走，时间复杂度会达到 $O(nk)$。无法解决问题。 这时我们使用倍增，用 $f(i, j)$ 表示第 $i$ 个节点走 $2^j$ 步后到达的点，用 $g(i,j)$ 表示第 $i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经典3 无向边重定向处理">
-<meta property="og:url" content="http://example.com/2024/07/25/%E7%BB%8F%E5%85%B83-%E6%97%A0%E5%90%91%E8%BE%B9%E9%87%8D%E5%AE%9A%E5%90%91%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="经典4 倍增">
+<meta property="og:url" content="http://example.com/2024/07/26/%E7%BB%8F%E5%85%B84-%E5%80%8D%E5%A2%9E/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="无向图边的重定向处理给定一张无向图 $n$ 个节点和 $m$ 条边，q次询问，每次询问关于其子图，询问子图总点数不超过n。 处理时我们将整个子图处理出来往往会花费 $O(nm)$ 时间复杂度，这是无法处理的。 于是我们将无向边重定向，每条边从度数小的节点指向度数大的节点。这样我们可以证明每个节点最多只会有 $O(\sqrt{2m})$ 条出边。这时我们处理出子图就只需要 $O(n\sqrt{m})">
+<meta property="og:description" content="倍增给定一个有向图，$n$ 个节点，$n$ 条边（每个点只有一条出边，不一定无环），边权为0或1，询问从每个点出发经过边权为 $0$ 的边的数量或为 $1$ 的数量恰好为 $k$ 时的终点。 如何我们暴力的在图上沿着边走，时间复杂度会达到 $O(nk)$。无法解决问题。 这时我们使用倍增，用 $f(i, j)$ 表示第 $i$ 个节点走 $2^j$ 步后到达的点，用 $g(i,j)$ 表示第 $i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-25T14:38:06.000Z">
-<meta property="article:modified_time" content="2024-07-25T15:24:02.174Z">
+<meta property="article:published_time" content="2024-07-26T04:06:14.000Z">
+<meta property="article:modified_time" content="2024-07-26T04:21:09.429Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>经典3 无向边重定向处理 - Hexo</title>
+  <title>经典4 倍增 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="经典3 无向边重定向处理"></span>
+            <span id="subtitle" data-typed-text="经典4 倍增"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-25 22:38" pubdate>
-          2024年7月25日 晚上
+        <time datetime="2024-07-26 12:06" pubdate>
+          2024年7月26日 中午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          676 字
+          543 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -267,18 +267,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">经典3 无向边重定向处理</h1>
+            <h1 id="seo-header">经典4 倍增</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="无向图边的重定向处理"><a href="#无向图边的重定向处理" class="headerlink" title="无向图边的重定向处理"></a>无向图边的重定向处理</h1><p>给定一张无向图 $n$ 个节点和 $m$ 条边，q次询问，每次询问关于其子图，询问子图总点数不超过n。</p>
-<p>处理时我们将整个子图处理出来往往会花费 $O(nm)$ 时间复杂度，这是无法处理的。</p>
-<p>于是我们将无向边重定向，每条边从度数小的节点指向度数大的节点。这样我们可以证明每个节点最多只会有 $O(\sqrt{2m})$ 条出边。这时我们处理出子图就只需要 $O(n\sqrt{m})$ 时间复杂度。从而解决问题。</p>
-<p>证明：若节点在原无向图上的度数小于等于 $\sqrt{2m}$ ，则在新图中的出度一定小于等于 $\sqrt{2m}$ 。</p>
-<p>若节点在原无向图中的度数大于 $\sqrt{2m}$ ，由于一共只有 $m$ 条边，所以所有节点的度数和为 $2m$ ，那么度数大于 $\sqrt{2m}$ 的节点最多只有 $\sqrt{2m}$ 个，又因为我们由度数小的节点指向度数大的节点，所以最多只有 $\sqrt{2m}$ 条出边</p>
-<p>例题：2024牛客暑期多校第二场B题</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> i64 = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br>    <span class="hljs-type">int</span> a, b, w;<br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> Edge &amp;t) <span class="hljs-type">const</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> w &lt; t.w;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, m, q;<br>    std::cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;<br>    std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 3&gt;&gt; <span class="hljs-built_in">edge</span>(m + <span class="hljs-number">1</span>);<br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">d</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-type">int</span> u, v, w;<br>        std::cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;<br>        edge[i] = &#123;u, v, w&#125;;<br>        d[u]++;<br>        d[v]++;<br>    &#125;<br>    std::vector&lt;std::vector&lt;std::pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt;&gt; <span class="hljs-built_in">adj</span>(n + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-type">int</span> u = edge[i][<span class="hljs-number">0</span>];<br>        <span class="hljs-type">int</span> v = edge[i][<span class="hljs-number">1</span>];<br>        <span class="hljs-type">int</span> w = edge[i][<span class="hljs-number">2</span>];<br>        <span class="hljs-keyword">if</span> (u &gt; v) &#123;<br>            std::<span class="hljs-built_in">swap</span>(u, v);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (d[u] &gt; d[v]) &#123;<br>            adj[v].<span class="hljs-built_in">push_back</span>(&#123;u, w&#125;);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            adj[u].<span class="hljs-built_in">push_back</span>(&#123;v, w&#125;);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">vis</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">p</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    std::<span class="hljs-built_in">iota</span>(p.<span class="hljs-built_in">begin</span>(), p.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);<br><br>    <span class="hljs-keyword">while</span> (q--) &#123;<br>        <span class="hljs-type">int</span> k;<br>        std::cin &gt;&gt; k;<br>        <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">b</span><span class="hljs-params">(k)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>            std::cin &gt;&gt; b[i];<br>            vis[b[i]] = <span class="hljs-number">1</span>;<br>        &#125;<br><br>        std::vector&lt;Edge&gt; e;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : b) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [v, w] : adj[u]) &#123;<br>                <span class="hljs-keyword">if</span> (vis[v]) &#123;<br>                    e.<span class="hljs-built_in">push_back</span>(&#123;u, v, w&#125;);<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">auto</span> find = [&amp;](<span class="hljs-keyword">auto</span> self, <span class="hljs-type">int</span> u) -&gt; <span class="hljs-type">int</span> &#123;<br>            <span class="hljs-keyword">if</span> (p[u] != u) &#123;<br>                p[u] = <span class="hljs-built_in">self</span>(self, p[u]);<br>            &#125;<br>            <span class="hljs-keyword">return</span> p[u];<br>        &#125;;<br><br>        std::<span class="hljs-built_in">sort</span>(e.<span class="hljs-built_in">begin</span>(), e.<span class="hljs-built_in">end</span>());<br>        i64 res = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> cnt = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [u, v, w] : e) &#123;<br>            <span class="hljs-type">int</span> fu = <span class="hljs-built_in">find</span>(find, u), fv = <span class="hljs-built_in">find</span>(find, v);<br>            <span class="hljs-keyword">if</span> (fu != fv) &#123;<br>                p[fu] = fv;<br>                res += w;<br>                cnt++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (cnt == k) &#123;<br>            std::cout &lt;&lt; res &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            std::cout &lt;&lt; <span class="hljs-string">&quot;-1\n&quot;</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : b) &#123;<br>            vis[u] = <span class="hljs-number">0</span>;<br>            p[u] = u;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    std::ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    std::cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br><br>    <span class="hljs-type">int</span> t = <span class="hljs-number">1</span>;<br>    <span class="hljs-comment">// std::cin &gt;&gt; t;</span><br>    <span class="hljs-keyword">while</span> (t--)<br>        <span class="hljs-built_in">solve</span>();<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="倍增"><a href="#倍增" class="headerlink" title="倍增"></a>倍增</h1><p>给定一个有向图，$n$ 个节点，$n$ 条边（每个点只有一条出边，不一定无环），边权为0或1，询问从每个点出发经过边权为 $0$ 的边的数量或为 $1$ 的数量恰好为 $k$ 时的终点。</p>
+<p>如何我们暴力的在图上沿着边走，时间复杂度会达到 $O(nk)$。无法解决问题。</p>
+<p>这时我们使用倍增，用 $f(i, j)$ 表示第 $i$ 个节点走 $2^j$ 步后到达的点，用 $g(i,j)$ 表示第 $i$ 个节点走了 $2^j$ 步后经历的边权为 $1$ 的边的数量。 这一步预处理时间复杂度为 $O(nlogk)$ ，这样在处理询问，时间复杂度为 $O(klogk)$ 。总时间复杂度 $O((n + k)logk)$ 。</p>
+<p>倍增在处理树上、图上问题往往可以将复杂度由 $O(n)$ 降为 $O(logn)$ ，大大优化时间复杂度。</p>
+<p>例题：2024牛客暑期多校第三次场J题</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> i64 = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    std::ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    std::cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br><br>    <span class="hljs-type">int</span> n, a, b;<br>    std::cin &gt;&gt; n &gt;&gt; a &gt;&gt; b;<br>    std::string s;<br>    std::string ss;<br>    std::cin &gt;&gt; s;<br>    <span class="hljs-keyword">while</span> (ss.<span class="hljs-built_in">size</span>() &lt; <span class="hljs-number">2</span> * a + n) &#123;<br>        ss += s;<br>    &#125;<br>    <span class="hljs-type">int</span> m = ss.<span class="hljs-built_in">size</span>();<br><br>    std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 18&gt;&gt; <span class="hljs-built_in">f</span>(n + <span class="hljs-number">1</span>);<br>    std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 18&gt;&gt; <span class="hljs-built_in">cnt</span>(n + <span class="hljs-number">1</span>);<br>    <span class="hljs-type">int</span> cnt1 = <span class="hljs-number">0</span>, cnt0 = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">-1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">while</span> (j &lt; m &amp;&amp; cnt1 &lt; a &amp;&amp; cnt0 &lt; a) &#123;<br>            j++;<br>            <span class="hljs-keyword">if</span> (ss[j] == <span class="hljs-string">&#x27;0&#x27;</span>) &#123;<br>                cnt0++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                cnt1++;<br>            &#125;<br>        &#125;<br>        f[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = ((j + <span class="hljs-number">1</span>) % n) + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (cnt1 == a) &#123;<br>            cnt[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            cnt[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (ss[i] == <span class="hljs-string">&#x27;0&#x27;</span>) &#123;<br>            cnt0--;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            cnt1--;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; <span class="hljs-number">18</span>; j++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            f[i][j] = f[f[i][j - <span class="hljs-number">1</span>]][j - <span class="hljs-number">1</span>];<br>            cnt[i][j] = cnt[i][j - <span class="hljs-number">1</span>] + cnt[f[i][j - <span class="hljs-number">1</span>]][j - <span class="hljs-number">1</span>];<br>        &#125;<br>    &#125;<br><br>    std::string ans;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-type">int</span> p = i;<br>        <span class="hljs-type">int</span> cnt0 = <span class="hljs-number">0</span>, cnt1 = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">17</span>; j &gt;= <span class="hljs-number">0</span>; j--) &#123;<br>            <span class="hljs-type">int</span> c1 = cnt[p][j];<br>            <span class="hljs-type">int</span> c0 = (<span class="hljs-number">1</span> &lt;&lt; j) - c1;<br>            <span class="hljs-keyword">if</span> (cnt0 + c0 &lt; b &amp;&amp; cnt1 + c1 &lt; b) &#123;<br>                cnt0 += c0;<br>                cnt1 += c1;<br>                p = f[p][j];<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cnt0 + c0 &lt; b) &#123;<br>                ans += <span class="hljs-string">&#x27;1&#x27;</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cnt1 + c1 &lt; b) &#123;<br>                ans += <span class="hljs-string">&#x27;0&#x27;</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    std::cout &lt;&lt; ans &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 
 
                 
@@ -325,8 +326,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>经典3 无向边重定向处理</div>
-      <div>http://example.com/2024/07/25/经典3-无向边重定向处理/</div>
+      <div>经典4 倍增</div>
+      <div>http://example.com/2024/07/26/经典4-倍增/</div>
     </div>
     <div class="license-meta">
       
@@ -338,7 +339,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月25日</div>
+          <div>2024年7月26日</div>
         </div>
       
       
@@ -370,18 +371,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/26/%E7%BB%8F%E5%85%B84-%E5%80%8D%E5%A2%9E/" title="经典4 倍增">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">经典4 倍增</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/24/%E7%BB%8F%E5%85%B82/" title="经典2 subset-sum问题">
-                        <span class="hidden-mobile">经典2 subset-sum问题</span>
+                      <a href="/2024/07/25/%E7%BB%8F%E5%85%B83-%E6%97%A0%E5%90%91%E8%BE%B9%E9%87%8D%E5%AE%9A%E5%90%91%E5%A4%84%E7%90%86/" title="经典3 无向边重定向处理">
+                        <span class="hidden-mobile">经典3 无向边重定向处理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -401,8 +396,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/07/25/%E7%BB%8F%E5%85%B83-%E6%97%A0%E5%90%91%E8%BE%B9%E9%87%8D%E5%AE%9A%E5%90%91%E5%A4%84%E7%90%86/';
-          this.page.identifier = '/2024/07/25/%E7%BB%8F%E5%85%B83-%E6%97%A0%E5%90%91%E8%BE%B9%E9%87%8D%E5%AE%9A%E5%90%91%E5%A4%84%E7%90%86/';
+          this.page.url = 'http://example.com/2024/07/26/%E7%BB%8F%E5%85%B84-%E5%80%8D%E5%A2%9E/';
+          this.page.identifier = '/2024/07/26/%E7%BB%8F%E5%85%B84-%E5%80%8D%E5%A2%9E/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
