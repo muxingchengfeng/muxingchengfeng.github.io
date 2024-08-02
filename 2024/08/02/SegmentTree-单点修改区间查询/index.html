@@ -16,13 +16,15 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="牛客 2024暑期多校第三场题解">
-<meta property="og:url" content="http://example.com/2024/07/23/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA%E9%A2%98%E8%A7%A3/index.html">
+    <meta name="description" content="SegmentTree（单点修改区间查询，不含懒标记）定义结构体 $Info$ 并重载其加号。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SegmentTree(单点修改区间查询)">
+<meta property="og:url" content="http://example.com/2024/08/02/SegmentTree-%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SegmentTree（单点修改区间查询，不含懒标记）定义结构体 $Info$ 并重载其加号。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-23T14:13:32.000Z">
-<meta property="article:modified_time" content="2024-07-23T14:13:32.119Z">
+<meta property="article:published_time" content="2024-08-02T02:47:33.000Z">
+<meta property="article:modified_time" content="2024-08-02T02:56:17.336Z">
 <meta property="article:author" content="muxingchengfeng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -30,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>牛客 2024暑期多校第三场题解 - Hexo</title>
+  <title>SegmentTree(单点修改区间查询) - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="牛客 2024暑期多校第三场题解"></span>
+            <span id="subtitle" data-typed-text="SegmentTree(单点修改区间查询)"></span>
           
         </div>
 
@@ -207,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-23 22:13" pubdate>
-          2024年7月23日 晚上
+        <time datetime="2024-08-02 10:47" pubdate>
+          2024年8月2日 上午
         </time>
       </span>
     
@@ -219,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          291 字
         
       </span>
     
@@ -230,7 +232,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -275,18 +277,58 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">牛客 2024暑期多校第三场题解</h1>
+            <h1 id="seo-header">SegmentTree(单点修改区间查询)</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h1 id="SegmentTree（单点修改区间查询，不含懒标记）"><a href="#SegmentTree（单点修改区间查询，不含懒标记）" class="headerlink" title="SegmentTree（单点修改区间查询，不含懒标记）"></a>SegmentTree（单点修改区间查询，不含懒标记）</h1><p>定义结构体 $Info$ 并重载其加号。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Info</span>&gt; <span class="hljs-keyword">struct</span> <span class="hljs-title class_">SegmentTree</span> &#123;<br>    <span class="hljs-type">int</span> n;<br>    std::vector&lt;Info&gt; info;<br><br>    <span class="hljs-built_in">SegmentTree</span>()<br>    &#123;<br>    &#125;<br><br>    <span class="hljs-built_in">SegmentTree</span>(<span class="hljs-type">int</span> n, Info _init = <span class="hljs-built_in">Info</span>())<br>    &#123;<br>        <span class="hljs-built_in">init</span>(std::<span class="hljs-built_in">vector</span>&lt;Info&gt;(n, _init));<br>    &#125;<br><br>    <span class="hljs-built_in">SegmentTree</span>(<span class="hljs-type">const</span> std::vector&lt;Info&gt; &amp;_init)<br>    &#123;<br>        <span class="hljs-built_in">init</span>(_init);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">const</span> std::vector&lt;Info&gt; &amp;_init)</span></span><br><span class="hljs-function">    </span>&#123;<br>        n = (<span class="hljs-type">int</span>)_init.<span class="hljs-built_in">size</span>();<br>        info.<span class="hljs-built_in">assign</span>((n &lt;&lt; <span class="hljs-number">2</span>) + <span class="hljs-number">1</span>, <span class="hljs-built_in">Info</span>());<br>        std::function&lt;<span class="hljs-type">void</span>(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>, <span class="hljs-type">int</span>)&gt; build = [&amp;](<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r) &#123;<br>            <span class="hljs-keyword">if</span> (l == r) &#123;<br>                info[p] = _init[l - <span class="hljs-number">1</span>];<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>            <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>            <span class="hljs-built_in">build</span>(<span class="hljs-number">2</span> * p, l, m);<br>            <span class="hljs-built_in">build</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>, r);<br>            <span class="hljs-built_in">pull</span>(p);<br>        &#125;;<br>        <span class="hljs-built_in">build</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">pull</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span></span><br><span class="hljs-function">    </span>&#123;<br>        info[p] = info[<span class="hljs-number">2</span> * p] + info[<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>];<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">const</span> Info &amp;v)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (l == r) &#123;<br>            info[p] = v;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (x &lt;= m) &#123;<br>            <span class="hljs-built_in">modify</span>(<span class="hljs-number">2</span> * p, l, m, x, v);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-built_in">modify</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>, r, x, v);<br>        &#125;<br>        <span class="hljs-built_in">pull</span>(p);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">const</span> Info &amp;v)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-built_in">modify</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n, p, v);<br>    &#125;<br><br>    <span class="hljs-function">Info <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (l &gt; y || r &lt; x) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Info</span>();<br>        &#125;<br>        <span class="hljs-keyword">if</span> (l &gt;= x &amp;&amp; r &lt;= y) &#123;<br>            <span class="hljs-keyword">return</span> info[p];<br>        &#125;<br>        <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(<span class="hljs-number">2</span> * p, l, m, x, y) + <span class="hljs-built_in">query</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>, r, x, y);<br>    &#125;<br><br>    <span class="hljs-function">Info <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n, l, r);<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Info</span> &#123;<br>&#125;;<br><br>Info <span class="hljs-keyword">operator</span>+(<span class="hljs-type">const</span> Info &amp;a, <span class="hljs-type">const</span> Info &amp;b)<br>&#123;<br>    Info res;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/" class="category-chain-item">算法和模板</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="category-chain-item">线段树</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -297,8 +339,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>牛客 2024暑期多校第三场题解</div>
-      <div>http://example.com/2024/07/23/牛客-2024暑期多校第三场题解/</div>
+      <div>SegmentTree(单点修改区间查询)</div>
+      <div>http://example.com/2024/08/02/SegmentTree-单点修改区间查询/</div>
     </div>
     <div class="license-meta">
       
@@ -310,7 +352,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月23日</div>
+          <div>2024年8月2日</div>
         </div>
       
       
@@ -342,18 +384,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/23/%E7%BB%8F%E5%85%B81/" title="经典1">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">经典1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/16/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA%E9%A2%98%E8%A7%A3/" title="牛客 2024暑期多校第一场题解">
-                        <span class="hidden-mobile">牛客 2024暑期多校第一场题解</span>
+                      <a href="/2024/07/27/%E7%BB%8F%E5%85%B85-Sum-over-Subsets-%E5%AD%90%E9%9B%86%E5%92%8C%E9%97%AE%E9%A2%98/" title="经典5 Sum over Subsets(子集和问题)">
+                        <span class="hidden-mobile">经典5 Sum over Subsets(子集和问题)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -373,8 +409,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/07/23/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA%E9%A2%98%E8%A7%A3/';
-          this.page.identifier = '/2024/07/23/%E7%89%9B%E5%AE%A2-2024%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA%E9%A2%98%E8%A7%A3/';
+          this.page.url = 'http://example.com/2024/08/02/SegmentTree-%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2/';
+          this.page.identifier = '/2024/08/02/SegmentTree-%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
