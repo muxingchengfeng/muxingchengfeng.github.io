@@ -16,15 +16,15 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Fenwick int find_first(T sum) 找到第一个前缀和是 $sum$ 的下标 int find_last(T sum) 找到最后一个前缀和是 $sum$ 的下标  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758">
+    <meta name="description" content="DSU（并查集）1234567891011121314151617181920212223242526272829303132struct DSU &#123;    std::vector&lt;int&gt; p, siz;    DSU(int n) : p(n + 1), siz(n + 1, 1)    &#123;        std::iota(p.begin(), p.end()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fenwick">
-<meta property="og:url" content="http://example.com/2024/08/02/Fenwick/index.html">
+<meta property="og:title" content="DSU">
+<meta property="og:url" content="http://example.com/2024/08/02/DSU/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Fenwick int find_first(T sum) 找到第一个前缀和是 $sum$ 的下标 int find_last(T sum) 找到最后一个前缀和是 $sum$ 的下标  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758">
+<meta property="og:description" content="DSU（并查集）1234567891011121314151617181920212223242526272829303132struct DSU &#123;    std::vector&lt;int&gt; p, siz;    DSU(int n) : p(n + 1), siz(n + 1, 1)    &#123;        std::iota(p.begin(), p.end()">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-02T04:19:35.000Z">
-<meta property="article:modified_time" content="2024-08-02T04:34:39.768Z">
+<meta property="article:published_time" content="2024-08-02T12:57:08.000Z">
+<meta property="article:modified_time" content="2024-08-02T12:59:30.565Z">
 <meta property="article:author" content="muxingchengfeng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Fenwick - Hexo</title>
+  <title>DSU - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Fenwick"></span>
+            <span id="subtitle" data-typed-text="DSU"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-02 12:19" pubdate>
-          2024年8月2日 中午
+        <time datetime="2024-08-02 20:57" pubdate>
+          2024年8月2日 晚上
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          223 字
+          84 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -277,16 +277,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Fenwick</h1>
+            <h1 id="seo-header">DSU</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Fenwick"><a href="#Fenwick" class="headerlink" title="Fenwick"></a>Fenwick</h1><ul>
-<li><strong><em>int find_first(T sum)</em></strong> 找到第一个前缀和是 $sum$ 的下标</li>
-<li><strong><em>int find_last(T sum)</em></strong> 找到最后一个前缀和是 $sum$ 的下标</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Fenwick</span> &#123;<br>    <span class="hljs-type">int</span> n;<br>    std::vector&lt;T&gt; tr;<br><br>    <span class="hljs-built_in">Fenwick</span>(<span class="hljs-type">int</span> n) : <span class="hljs-built_in">n</span>(n), <span class="hljs-built_in">tr</span>(n + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)<br>    &#123;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> x &amp; -x;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> x, T c)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = x; i &lt;= n; i += <span class="hljs-built_in">lowbit</span>(i))<br>            tr[i] += c;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, T c)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-built_in">modify</span>(l, c);<br>        <span class="hljs-keyword">if</span> (r + <span class="hljs-number">1</span> &lt;= n)<br>            <span class="hljs-built_in">modify</span>(r + <span class="hljs-number">1</span>, -c);<br>    &#125;<br><br>    <span class="hljs-function">T <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    </span>&#123;<br>        T res = <span class="hljs-built_in">T</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = x; i; i -= <span class="hljs-built_in">lowbit</span>(i))<br>            res += tr[i];<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br><br>    <span class="hljs-function">T <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(r) - <span class="hljs-built_in">query</span>(l - <span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find_first</span><span class="hljs-params">(T sum)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        T val = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = std::__lg(n); i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-keyword">if</span> ((ans | (<span class="hljs-number">1</span> &lt;&lt; i)) &lt;= n &amp;&amp; val + tr[ans | (<span class="hljs-number">1</span> &lt;&lt; i)] &lt; sum) &#123;<br>                ans |= <span class="hljs-number">1</span> &lt;&lt; i;<br>                val += tr[ans];<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans + <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find_last</span><span class="hljs-params">(T sum)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        T val = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = std::__lg(n); i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-keyword">if</span> ((ans | (<span class="hljs-number">1</span> &lt;&lt; i)) &lt;= n &amp;&amp; val + tr[ans | (<span class="hljs-number">1</span> &lt;&lt; i)] &lt;= sum) &#123;<br>                ans |= <span class="hljs-number">1</span> &lt;&lt; i;<br>                val += tr[ans];<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+                <h1 id="DSU（并查集）"><a href="#DSU（并查集）" class="headerlink" title="DSU（并查集）"></a>DSU（并查集）</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">DSU</span> &#123;<br>    std::vector&lt;<span class="hljs-type">int</span>&gt; p, siz;<br>    <span class="hljs-built_in">DSU</span>(<span class="hljs-type">int</span> n) : <span class="hljs-built_in">p</span>(n + <span class="hljs-number">1</span>), <span class="hljs-built_in">siz</span>(n + <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br>    &#123;<br>        std::<span class="hljs-built_in">iota</span>(p.<span class="hljs-built_in">begin</span>(), p.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> p[x] == x ? x : p[x] = <span class="hljs-built_in">find</span>(p[x]);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">same</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(x) == <span class="hljs-built_in">find</span>(y);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function">    </span>&#123;<br>        x = <span class="hljs-built_in">find</span>(x), y = <span class="hljs-built_in">find</span>(y);<br>        <span class="hljs-keyword">if</span> (x == y)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        siz[x] += siz[y];<br>        p[y] = x;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> siz[<span class="hljs-built_in">find</span>(x)];<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
 
 
                 
@@ -340,8 +336,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Fenwick</div>
-      <div>http://example.com/2024/08/02/Fenwick/</div>
+      <div>DSU</div>
+      <div>http://example.com/2024/08/02/DSU/</div>
     </div>
     <div class="license-meta">
       
@@ -385,18 +381,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/02/DSU/" title="DSU">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">DSU</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/08/02/SegmentTree-%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2/" title="SegmentTree(单点修改区间查询)">
-                        <span class="hidden-mobile">SegmentTree(单点修改区间查询)</span>
+                      <a href="/2024/08/02/Fenwick/" title="Fenwick">
+                        <span class="hidden-mobile">Fenwick</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -416,8 +406,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/08/02/Fenwick/';
-          this.page.identifier = '/2024/08/02/Fenwick/';
+          this.page.url = 'http://example.com/2024/08/02/DSU/';
+          this.page.identifier = '/2024/08/02/DSU/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

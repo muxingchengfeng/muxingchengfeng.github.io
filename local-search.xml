@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>DSU</title>
+    <link href="/2024/08/02/DSU/"/>
+    <url>/2024/08/02/DSU/</url>
+    
+    <content type="html"><![CDATA[<h1 id="DSU（并查集）"><a href="#DSU（并查集）" class="headerlink" title="DSU（并查集）"></a>DSU（并查集）</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">DSU</span> &#123;<br>    std::vector&lt;<span class="hljs-type">int</span>&gt; p, siz;<br>    <span class="hljs-built_in">DSU</span>(<span class="hljs-type">int</span> n) : <span class="hljs-built_in">p</span>(n + <span class="hljs-number">1</span>), <span class="hljs-built_in">siz</span>(n + <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br>    &#123;<br>        std::<span class="hljs-built_in">iota</span>(p.<span class="hljs-built_in">begin</span>(), p.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> p[x] == x ? x : p[x] = <span class="hljs-built_in">find</span>(p[x]);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">same</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(x) == <span class="hljs-built_in">find</span>(y);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function">    </span>&#123;<br>        x = <span class="hljs-built_in">find</span>(x), y = <span class="hljs-built_in">find</span>(y);<br>        <span class="hljs-keyword">if</span> (x == y)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        siz[x] += siz[y];<br>        p[y] = x;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> siz[<span class="hljs-built_in">find</span>(x)];<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>算法和模板</category>
+      
+      <category>数据结构</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Fenwick</title>
     <link href="/2024/08/02/Fenwick/"/>
     <url>/2024/08/02/Fenwick/</url>
