@@ -16,15 +16,15 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Matrix1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465template &lt;typename T&gt; struct Matrix &#123;    int n, mod;    std::v">
+    <meta name="description" content="SeqAM12345678910111213std::vector&lt;std::array&lt;int, 26&gt;&gt; SeqAM(std::string &amp;s)&#123;    int n &#x3D; s.size();    std::vector&lt;std::array&lt;int, 26&gt;&gt; ne(n + 1, std::array&lt;int, 26&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matrix">
-<meta property="og:url" content="http://example.com/2024/08/21/Matrix/index.html">
+<meta property="og:title" content="SeqAM">
+<meta property="og:url" content="http://example.com/2024/09/03/SeqAM/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Matrix1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465template &lt;typename T&gt; struct Matrix &#123;    int n, mod;    std::v">
+<meta property="og:description" content="SeqAM12345678910111213std::vector&lt;std::array&lt;int, 26&gt;&gt; SeqAM(std::string &amp;s)&#123;    int n &#x3D; s.size();    std::vector&lt;std::array&lt;int, 26&gt;&gt; ne(n + 1, std::array&lt;int, 26&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-21T13:29:42.000Z">
-<meta property="article:modified_time" content="2024-08-26T11:23:50.214Z">
+<meta property="article:published_time" content="2024-09-03T14:16:46.000Z">
+<meta property="article:modified_time" content="2024-09-03T14:18:17.571Z">
 <meta property="article:author" content="muxingchengfeng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Matrix - Hexo</title>
+  <title>SeqAM - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Matrix"></span>
+            <span id="subtitle" data-typed-text="SeqAM"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-21 21:29" pubdate>
-          2024年8月21日 晚上
+        <time datetime="2024-09-03 22:16" pubdate>
+          2024年9月3日 晚上
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          283 字
+          85 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          3 分钟
+          1 分钟
         
       </span>
     
@@ -277,12 +277,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Matrix</h1>
+            <h1 id="seo-header">SeqAM</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Matrix"><a href="#Matrix" class="headerlink" title="Matrix"></a>Matrix</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Matrix</span> &#123;<br>    <span class="hljs-type">int</span> n, mod;<br>    std::vector&lt;std::vector&lt;T&gt;&gt; a;<br><br>    <span class="hljs-built_in">Matrix</span>(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> mod = <span class="hljs-number">0</span>) : <span class="hljs-built_in">n</span>(n), <span class="hljs-built_in">mod</span>(mod), <span class="hljs-built_in">a</span>(n, std::<span class="hljs-built_in">vector</span>&lt;T&gt;(n))<br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                a[i][j] = <span class="hljs-number">0</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            a[i][i] = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br><br>    Matrix <span class="hljs-keyword">operator</span>*(<span class="hljs-type">const</span> Matrix &amp;t) <span class="hljs-type">const</span><br>    &#123;<br>        Matrix&lt;T&gt; ret = <span class="hljs-built_in">Matrix</span>(n, mod);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            ret.a[i][i] = <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (mod) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; n; k++) &#123;<br>                        ret.a[i][j] = (ret.a[i][j] + a[i][k] * t.a[k][j]) % mod;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; n; k++) &#123;<br>                        ret.a[i][j] = (ret.a[i][j] + a[i][k] * t.a[k][j]);<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    Matrix <span class="hljs-keyword">operator</span>+(<span class="hljs-type">const</span> Matrix &amp;t) <span class="hljs-type">const</span><br>    &#123;<br>        Matrix&lt;T&gt; ret = <span class="hljs-built_in">Matrix</span>(n, mod);<br>        <span class="hljs-keyword">if</span> (mod) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                    ret.a[i][j] = (a[i][j] + t.a[i][j]) % mod;<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                    ret.a[i][j] = (a[i][j] + t.a[i][j]);<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    Matrix <span class="hljs-keyword">operator</span>%(<span class="hljs-type">const</span> Matrix &amp;t) <span class="hljs-type">const</span><br>    &#123;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+                <h1 id="SeqAM"><a href="#SeqAM" class="headerlink" title="SeqAM"></a>SeqAM</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 26&gt;&gt; <span class="hljs-built_in">SeqAM</span>(std::string &amp;s)<br>&#123;<br>    <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>    std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 26&gt;&gt; <span class="hljs-built_in">ne</span>(n + <span class="hljs-number">1</span>, std::<span class="hljs-built_in">array</span>&lt;<span class="hljs-type">int</span>, <span class="hljs-number">26</span>&gt;());<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++)<br>        ne[n][i] = n + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">26</span>; j++)<br>            ne[i - <span class="hljs-number">1</span>][j] = ne[i][j];<br>        ne[i - <span class="hljs-number">1</span>][s[i - <span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;a&#x27;</span>] = i;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ne;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -312,8 +312,15 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/Number-Theory/" class="category-chain-item">Number Theory</a>
+  <a href="/categories/%E7%AB%9E%E8%B5%9B/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AB%9E%E8%B5%9B/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E5%BA%8F%E5%88%97%E8%87%AA%E5%8A%A8%E6%9C%BA/" class="category-chain-item">序列自动机</a>
+  
+  
+
   
 
   
@@ -336,8 +343,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Matrix</div>
-      <div>http://example.com/2024/08/21/Matrix/</div>
+      <div>SeqAM</div>
+      <div>http://example.com/2024/09/03/SeqAM/</div>
     </div>
     <div class="license-meta">
       
@@ -349,7 +356,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月21日</div>
+          <div>2024年9月3日</div>
         </div>
       
       
@@ -381,18 +388,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/03/SeqAM/" title="SeqAM">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SeqAM</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/08/19/qpower/" title="qpower">
-                        <span class="hidden-mobile">qpower</span>
+                      <a href="/2024/08/21/Matrix/" title="Matrix">
+                        <span class="hidden-mobile">Matrix</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -412,8 +413,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/08/21/Matrix/';
-          this.page.identifier = '/2024/08/21/Matrix/';
+          this.page.url = 'http://example.com/2024/09/03/SeqAM/';
+          this.page.identifier = '/2024/09/03/SeqAM/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>SeqAM</title>
+    <link href="/2024/09/03/SeqAM/"/>
+    <url>/2024/09/03/SeqAM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SeqAM"><a href="#SeqAM" class="headerlink" title="SeqAM"></a>SeqAM</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 26&gt;&gt; <span class="hljs-built_in">SeqAM</span>(std::string &amp;s)<br>&#123;<br>    <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>    std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 26&gt;&gt; <span class="hljs-built_in">ne</span>(n + <span class="hljs-number">1</span>, std::<span class="hljs-built_in">array</span>&lt;<span class="hljs-type">int</span>, <span class="hljs-number">26</span>&gt;());<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++)<br>        ne[n][i] = n + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">26</span>; j++)<br>            ne[i - <span class="hljs-number">1</span>][j] = ne[i][j];<br>        ne[i - <span class="hljs-number">1</span>][s[i - <span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;a&#x27;</span>] = i;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ne;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>算法和模板</category>
+      
+      <category>字符串</category>
+      
+      <category>序列自动机</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Matrix</title>
     <link href="/2024/08/21/Matrix/"/>
     <url>/2024/08/21/Matrix/</url>
