@@ -16,15 +16,15 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="SeqAM12345678910111213std::vector&lt;std::array&lt;int, 26&gt;&gt; SeqAM(std::string &amp;s)&#123;    int n &#x3D; s.size();    std::vector&lt;std::array&lt;int, 26&gt;&gt; ne(n + 1, std::array&lt;int, 26&amp;">
+    <meta name="description" content="zFunction12345678910111213141516std::vector&lt;int&gt; zFunction(const std::string &amp;s)&#123;    int n &#x3D; s.size();    std::vector&lt;int&gt; z(n + 1);    z[0] &#x3D; n;    for (int i &#x3D; 1, j &#x3D; 1; i &lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SeqAM">
-<meta property="og:url" content="http://example.com/2024/09/03/SeqAM/index.html">
+<meta property="og:title" content="zFunction">
+<meta property="og:url" content="http://example.com/2024/09/07/zFunction/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="SeqAM12345678910111213std::vector&lt;std::array&lt;int, 26&gt;&gt; SeqAM(std::string &amp;s)&#123;    int n &#x3D; s.size();    std::vector&lt;std::array&lt;int, 26&gt;&gt; ne(n + 1, std::array&lt;int, 26&amp;">
+<meta property="og:description" content="zFunction12345678910111213141516std::vector&lt;int&gt; zFunction(const std::string &amp;s)&#123;    int n &#x3D; s.size();    std::vector&lt;int&gt; z(n + 1);    z[0] &#x3D; n;    for (int i &#x3D; 1, j &#x3D; 1; i &lt;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-09-03T14:16:46.000Z">
-<meta property="article:modified_time" content="2024-09-03T14:20:36.273Z">
+<meta property="article:published_time" content="2024-09-07T04:22:31.000Z">
+<meta property="article:modified_time" content="2024-09-07T04:23:33.578Z">
 <meta property="article:author" content="muxingchengfeng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SeqAM - Hexo</title>
+  <title>zFunction - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SeqAM"></span>
+            <span id="subtitle" data-typed-text="zFunction"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-03 22:16" pubdate>
-          2024年9月3日 晚上
+        <time datetime="2024-09-07 12:22" pubdate>
+          2024年9月7日 中午
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          85 字
+          83 字
         
       </span>
     
@@ -277,12 +277,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">SeqAM</h1>
+            <h1 id="seo-header">zFunction</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="SeqAM"><a href="#SeqAM" class="headerlink" title="SeqAM"></a>SeqAM</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 26&gt;&gt; <span class="hljs-built_in">SeqAM</span>(std::string &amp;s)<br>&#123;<br>    <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>    std::vector&lt;std::array&lt;<span class="hljs-type">int</span>, 26&gt;&gt; <span class="hljs-built_in">ne</span>(n + <span class="hljs-number">1</span>, std::<span class="hljs-built_in">array</span>&lt;<span class="hljs-type">int</span>, <span class="hljs-number">26</span>&gt;());<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++)<br>        ne[n][i] = n + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">26</span>; j++)<br>            ne[i - <span class="hljs-number">1</span>][j] = ne[i][j];<br>        ne[i - <span class="hljs-number">1</span>][s[i - <span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;a&#x27;</span>] = i;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ne;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="zFunction"><a href="#zFunction" class="headerlink" title="zFunction"></a>zFunction</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">zFunction</span><span class="hljs-params">(<span class="hljs-type">const</span> std::string &amp;s)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">z</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    z[<span class="hljs-number">0</span>] = n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        z[i] = std::<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, std::<span class="hljs-built_in">min</span>(j + z[j] - i, z[i - j]));<br>        <span class="hljs-keyword">while</span> (i + z[i] &lt; n &amp;&amp; s[z[i]] == s[i + z[i]]) &#123;<br>            z[i]++;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (i + z[i] &gt; j + z[j]) &#123;<br>            j = i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> z;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -336,8 +336,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SeqAM</div>
-      <div>http://example.com/2024/09/03/SeqAM/</div>
+      <div>zFunction</div>
+      <div>http://example.com/2024/09/07/zFunction/</div>
     </div>
     <div class="license-meta">
       
@@ -349,7 +349,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月3日</div>
+          <div>2024年9月7日</div>
         </div>
       
       
@@ -381,18 +381,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/07/zFunction/" title="zFunction">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">zFunction</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/08/21/Matrix/" title="Matrix">
-                        <span class="hidden-mobile">Matrix</span>
+                      <a href="/2024/09/03/SeqAM/" title="SeqAM">
+                        <span class="hidden-mobile">SeqAM</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -412,8 +406,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/09/03/SeqAM/';
-          this.page.identifier = '/2024/09/03/SeqAM/';
+          this.page.url = 'http://example.com/2024/09/07/zFunction/';
+          this.page.identifier = '/2024/09/07/zFunction/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

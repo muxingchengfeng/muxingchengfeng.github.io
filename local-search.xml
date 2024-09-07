@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>zFunction</title>
+    <link href="/2024/09/07/zFunction/"/>
+    <url>/2024/09/07/zFunction/</url>
+    
+    <content type="html"><![CDATA[<h1 id="zFunction"><a href="#zFunction" class="headerlink" title="zFunction"></a>zFunction</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">zFunction</span><span class="hljs-params">(<span class="hljs-type">const</span> std::string &amp;s)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">z</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    z[<span class="hljs-number">0</span>] = n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        z[i] = std::<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, std::<span class="hljs-built_in">min</span>(j + z[j] - i, z[i - j]));<br>        <span class="hljs-keyword">while</span> (i + z[i] &lt; n &amp;&amp; s[z[i]] == s[i + z[i]]) &#123;<br>            z[i]++;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (i + z[i] &gt; j + z[j]) &#123;<br>            j = i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> z;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>算法和模板</category>
+      
+      <category>字符串</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SeqAM</title>
     <link href="/2024/09/03/SeqAM/"/>
     <url>/2024/09/03/SeqAM/</url>
