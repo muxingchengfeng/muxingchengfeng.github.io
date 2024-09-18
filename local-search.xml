@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>MinCostMaxFlow</title>
+    <link href="/2024/09/19/MinCostMaxFlow/"/>
+    <url>/2024/09/19/MinCostMaxFlow/</url>
+    
+    <content type="html"><![CDATA[<h1 id="MinCostMaxFlow"><a href="#MinCostMaxFlow" class="headerlink" title="MinCostMaxFlow"></a>MinCostMaxFlow</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> <span class="hljs-type">cost_t</span>&gt; <span class="hljs-keyword">struct</span> <span class="hljs-title class_">MinCostMaxFlow</span> &#123;<br><br>    <span class="hljs-type">const</span> <span class="hljs-type">cost_t</span> INF = std::numeric_limits&lt;<span class="hljs-type">cost_t</span>&gt;::<span class="hljs-built_in">max</span>() / <span class="hljs-number">2</span>;<br>    <span class="hljs-type">int</span> h[maxn], e[maxm], ne[maxm], idx;<br>    <span class="hljs-type">cost_t</span> f[maxm], w[maxm], d[maxn], incf[maxn];<br>    <span class="hljs-type">int</span> q[maxn], pre[maxn];<br>    <span class="hljs-type">bool</span> vis[maxn];<br>    <span class="hljs-type">int</span> V, S, T;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> s, <span class="hljs-type">int</span> t)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= v; i++)<br>            h[i] = <span class="hljs-number">-1</span>;<br>        idx = <span class="hljs-number">0</span>;<br>        V = v, S = s, T = t;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">cost_t</span> c, <span class="hljs-type">cost_t</span> d)</span></span><br><span class="hljs-function">    </span>&#123;<br>        e[idx] = b, f[idx] = c, w[idx] = d, ne[idx] = h[a], h[a] = idx++;<br>        e[idx] = a, f[idx] = <span class="hljs-number">0</span>, w[idx] = -d, ne[idx] = h[b], h[b] = idx++;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">spfa</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-type">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= V; i++) &#123;<br>            d[i] = INF;<br>            incf[i] = <span class="hljs-number">0</span>;<br>            vis[i] = <span class="hljs-number">0</span>;<br>        &#125;<br>        q[tt++] = S, d[S] = <span class="hljs-number">0</span>, incf[S] = INF;<br>        <span class="hljs-keyword">while</span> (hh != tt) &#123;<br>            <span class="hljs-type">int</span> t = q[hh++];<br>            <span class="hljs-keyword">if</span> (hh == maxn)<br>                hh = <span class="hljs-number">0</span>;<br>            vis[t] = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = h[t]; ~i; i = ne[i]) &#123;<br>                <span class="hljs-type">int</span> j = e[i];<br>                <span class="hljs-keyword">if</span> (f[i] &amp;&amp; d[j] &gt; d[t] + w[i]) &#123;<br>                    d[j] = d[t] + w[i];<br>                    incf[j] = std::<span class="hljs-built_in">min</span>(incf[t], f[i]);<br>                    pre[j] = i;<br>                    <span class="hljs-keyword">if</span> (!vis[j]) &#123;<br>                        vis[j] = <span class="hljs-number">1</span>;<br>                        q[tt++] = j;<br>                        <span class="hljs-keyword">if</span> (tt == maxn)<br>                            tt = <span class="hljs-number">0</span>;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> incf[T] &gt; <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-function">std::pair&lt;<span class="hljs-type">cost_t</span>, <span class="hljs-type">cost_t</span>&gt; <span class="hljs-title">EK</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-type">cost_t</span> flow = <span class="hljs-number">0</span>, cost = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (<span class="hljs-built_in">spfa</span>()) &#123;<br>            <span class="hljs-type">cost_t</span> t = incf[T];<br>            flow += t, cost += d[T] * t;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = T; i != S; i = e[pre[i] ^ <span class="hljs-number">1</span>]) &#123;<br>                f[pre[i]] -= t, f[pre[i] ^ <span class="hljs-number">1</span>] += t;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> &#123;flow, cost&#125;;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>算法和模板</category>
+      
+      <category>Graph Theory</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>The 2024 ICPC Asia East Continent Online Contest (I)</title>
     <link href="/2024/09/18/The-2024-ICPC-Asia-East-Continent-Online-Contest-I/"/>
     <url>/2024/09/18/The-2024-ICPC-Asia-East-Continent-Online-Contest-I/</url>
@@ -86,7 +109,7 @@
       
       <category>算法和模板</category>
       
-      <category>字符串</category>
+      <category>String</category>
       
     </categories>
     
@@ -155,7 +178,7 @@
       
       <category>算法和模板</category>
       
-      <category>数据结构</category>
+      <category>Data Structure</category>
       
     </categories>
     
@@ -178,7 +201,7 @@
       
       <category>算法和模板</category>
       
-      <category>数据结构</category>
+      <category>Data Structure</category>
       
     </categories>
     
@@ -264,7 +287,7 @@
       
       <category>算法和模板</category>
       
-      <category>数据结构</category>
+      <category>Data Structure</category>
       
       <category>线段树</category>
       
@@ -289,7 +312,7 @@
       
       <category>算法和模板</category>
       
-      <category>数据结构</category>
+      <category>Data Structure</category>
       
     </categories>
     
@@ -312,7 +335,7 @@
       
       <category>算法和模板</category>
       
-      <category>数据结构</category>
+      <category>Data Structure</category>
       
     </categories>
     
@@ -335,7 +358,7 @@
       
       <category>算法和模板</category>
       
-      <category>数据结构</category>
+      <category>Data Structure</category>
       
       <category>线段树</category>
       
