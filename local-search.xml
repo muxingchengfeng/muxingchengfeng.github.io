@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>FloorSum</title>
+    <link href="/2024/10/03/FloorSum/"/>
+    <url>/2024/10/03/FloorSum/</url>
+    
+    <content type="html"><![CDATA[<h1 id="FloorSum"><a href="#FloorSum" class="headerlink" title="FloorSum"></a>FloorSum</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-function">T <span class="hljs-title">FloorSum</span><span class="hljs-params">(T a, T b, T c, T n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (!a) &#123;<br>        <span class="hljs-keyword">return</span> b / c * (n + <span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (a &gt;= c || b &gt;= c) &#123;<br>        T ra = <span class="hljs-number">0</span>, ma = <span class="hljs-number">0</span>, rb = <span class="hljs-number">0</span>, mb = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span> (a * c &gt; <span class="hljs-number">0</span>) &#123;<br>            ra = a / c;<br>            ma = a % c;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            ra = -((<span class="hljs-built_in">abs</span>(a) + <span class="hljs-built_in">abs</span>(c) - <span class="hljs-number">1</span>) / <span class="hljs-built_in">abs</span>(c));<br>            ma = a - ra * c;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (b * c &gt; <span class="hljs-number">0</span>) &#123;<br>            rb = b / c;<br>            mb = b % c;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            rb = -((<span class="hljs-built_in">abs</span>(b) + <span class="hljs-built_in">abs</span>(c) - <span class="hljs-number">1</span>) / <span class="hljs-built_in">abs</span>(c));<br>            mb = b - rb * c;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (n * (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) * ra + (n + <span class="hljs-number">1</span>) * rb + <span class="hljs-built_in">FloorSum</span>(ma, mb, c, n);<br>    &#125;<br>    T m = (a * n + b) / c;<br>    <span class="hljs-keyword">return</span> m * n - <span class="hljs-built_in">FloorSum</span>(c, c - b - <span class="hljs-number">1</span>, a, m - <span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>算法和模板</category>
+      
+      <category>Number Theory</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>The 2024 ICPC Asia East Continent Online Contest (II)</title>
     <link href="/2024/09/26/The-2024-ICPC-Asia-East-Continent-Online-Contest-II/"/>
     <url>/2024/09/26/The-2024-ICPC-Asia-East-Continent-Online-Contest-II/</url>
