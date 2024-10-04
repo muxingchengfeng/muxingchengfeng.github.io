@@ -16,15 +16,15 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="FloorSum1234567891011121314151617181920212223242526template &lt;typename T&gt; T FloorSum(T a, T b, T c, T n)&#123;    if (!a) &#123;        return b &#x2F; c * (n + 1);    &#125;    if (a &gt;&#x3D; c || b &amp;gt">
+    <meta name="description" content="FloorSum1234567891011121314151617181920template &lt;typename T&gt; T FloorSum(T a, T b, T c, T n)&#123;    &#x2F;&#x2F; 变成大于等于0    if (c &lt; 0) &#123;        c &#x3D; -c;        a &#x3D; -a;        b &#x3D; -b;    &#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FloorSum">
 <meta property="og:url" content="http://example.com/2024/10/03/FloorSum/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="FloorSum1234567891011121314151617181920212223242526template &lt;typename T&gt; T FloorSum(T a, T b, T c, T n)&#123;    if (!a) &#123;        return b &#x2F; c * (n + 1);    &#125;    if (a &gt;&#x3D; c || b &amp;gt">
+<meta property="og:description" content="FloorSum1234567891011121314151617181920template &lt;typename T&gt; T FloorSum(T a, T b, T c, T n)&#123;    &#x2F;&#x2F; 变成大于等于0    if (c &lt; 0) &#123;        c &#x3D; -c;        a &#x3D; -a;        b &#x3D; -b;    &#125;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-03T14:25:33.000Z">
-<meta property="article:modified_time" content="2024-10-03T14:27:07.589Z">
+<meta property="article:modified_time" content="2024-10-04T03:49:46.252Z">
 <meta property="article:author" content="muxingchengfeng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          121 字
+          88 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -282,7 +282,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="FloorSum"><a href="#FloorSum" class="headerlink" title="FloorSum"></a>FloorSum</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-function">T <span class="hljs-title">FloorSum</span><span class="hljs-params">(T a, T b, T c, T n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (!a) &#123;<br>        <span class="hljs-keyword">return</span> b / c * (n + <span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (a &gt;= c || b &gt;= c) &#123;<br>        T ra = <span class="hljs-number">0</span>, ma = <span class="hljs-number">0</span>, rb = <span class="hljs-number">0</span>, mb = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span> (a * c &gt; <span class="hljs-number">0</span>) &#123;<br>            ra = a / c;<br>            ma = a % c;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            ra = -((<span class="hljs-built_in">abs</span>(a) + <span class="hljs-built_in">abs</span>(c) - <span class="hljs-number">1</span>) / <span class="hljs-built_in">abs</span>(c));<br>            ma = a - ra * c;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (b * c &gt; <span class="hljs-number">0</span>) &#123;<br>            rb = b / c;<br>            mb = b % c;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            rb = -((<span class="hljs-built_in">abs</span>(b) + <span class="hljs-built_in">abs</span>(c) - <span class="hljs-number">1</span>) / <span class="hljs-built_in">abs</span>(c));<br>            mb = b - rb * c;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (n * (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) * ra + (n + <span class="hljs-number">1</span>) * rb + <span class="hljs-built_in">FloorSum</span>(ma, mb, c, n);<br>    &#125;<br>    T m = (a * n + b) / c;<br>    <span class="hljs-keyword">return</span> m * n - <span class="hljs-built_in">FloorSum</span>(c, c - b - <span class="hljs-number">1</span>, a, m - <span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="FloorSum"><a href="#FloorSum" class="headerlink" title="FloorSum"></a>FloorSum</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-function">T <span class="hljs-title">FloorSum</span><span class="hljs-params">(T a, T b, T c, T n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// 变成大于等于0</span><br>    <span class="hljs-keyword">if</span> (c &lt; <span class="hljs-number">0</span>) &#123;<br>        c = -c;<br>        a = -a;<br>        b = -b;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">0</span>) &#123;<br>        b = b + a * n;<br>        a = -a;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!a)<br>        <span class="hljs-keyword">return</span> (b / c) * (n + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">if</span> (a &gt;= c || b &gt;= c)<br>        <span class="hljs-keyword">return</span> (n * (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) * (a / c) + (n + <span class="hljs-number">1</span>) * (b / c) + <span class="hljs-built_in">FloorSum</span>(a % c, b % c, c, n);<br>    T m = (a * n + b) / c;<br>    <span class="hljs-keyword">return</span> m * n - <span class="hljs-built_in">FloorSum</span>(c, c - b - <span class="hljs-number">1</span>, a, m - <span class="hljs-number">1</span>);<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 
                 
