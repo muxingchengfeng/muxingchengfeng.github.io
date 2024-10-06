@@ -16,15 +16,15 @@
   <meta name="author" content="muxingchengfeng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="FloorSum1234567891011121314151617181920template &lt;typename T&gt; T FloorSum(T a, T b, T c, T n)&#123;    &#x2F;&#x2F; 变成大于等于0    if (c &lt; 0) &#123;        c &#x3D; -c;        a &#x3D; -a;        b &#x3D; -b;    &#125;">
+    <meta name="description" content="AtCoder Beginner Contest 373G - No Cross Matching一定存在解。当距离和最小时一定是一组可行解，跑最小费用最大流。 或者一直重复寻找两个相交的线段，将端点互换。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FloorSum">
-<meta property="og:url" content="http://example.com/2024/10/03/FloorSum/index.html">
+<meta property="og:title" content="AtCoder Beginner Contest 373">
+<meta property="og:url" content="http://example.com/2024/10/05/AtCoder-Beginner-Contes-373/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="FloorSum1234567891011121314151617181920template &lt;typename T&gt; T FloorSum(T a, T b, T c, T n)&#123;    &#x2F;&#x2F; 变成大于等于0    if (c &lt; 0) &#123;        c &#x3D; -c;        a &#x3D; -a;        b &#x3D; -b;    &#125;">
+<meta property="og:description" content="AtCoder Beginner Contest 373G - No Cross Matching一定存在解。当距离和最小时一定是一组可行解，跑最小费用最大流。 或者一直重复寻找两个相交的线段，将端点互换。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-03T14:25:33.000Z">
-<meta property="article:modified_time" content="2024-10-04T03:49:46.252Z">
+<meta property="article:published_time" content="2024-10-05T05:16:40.000Z">
+<meta property="article:modified_time" content="2024-10-06T05:44:14.762Z">
 <meta property="article:author" content="muxingchengfeng">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>FloorSum - Hexo</title>
+  <title>AtCoder Beginner Contest 373 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="FloorSum"></span>
+            <span id="subtitle" data-typed-text="AtCoder Beginner Contest 373"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-03 22:25" pubdate>
-          2024年10月3日 晚上
+        <time datetime="2024-10-05 13:16" pubdate>
+          2024年10月5日 下午
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          88 字
+          434 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -277,12 +277,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">FloorSum</h1>
+            <h1 id="seo-header">AtCoder Beginner Contest 373</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="FloorSum"><a href="#FloorSum" class="headerlink" title="FloorSum"></a>FloorSum</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-function">T <span class="hljs-title">FloorSum</span><span class="hljs-params">(T a, T b, T c, T n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// 变成大于等于0</span><br>    <span class="hljs-keyword">if</span> (c &lt; <span class="hljs-number">0</span>) &#123;<br>        c = -c;<br>        a = -a;<br>        b = -b;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">0</span>) &#123;<br>        b = b + a * n;<br>        a = -a;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!a)<br>        <span class="hljs-keyword">return</span> (b / c) * (n + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">if</span> (a &gt;= c || b &gt;= c)<br>        <span class="hljs-keyword">return</span> (n * (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) * (a / c) + (n + <span class="hljs-number">1</span>) * (b / c) + <span class="hljs-built_in">FloorSum</span>(a % c, b % c, c, n);<br>    T m = (a * n + b) / c;<br>    <span class="hljs-keyword">return</span> m * n - <span class="hljs-built_in">FloorSum</span>(c, c - b - <span class="hljs-number">1</span>, a, m - <span class="hljs-number">1</span>);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+                <h1 id="AtCoder-Beginner-Contest-373"><a href="#AtCoder-Beginner-Contest-373" class="headerlink" title="AtCoder Beginner Contest 373"></a>AtCoder Beginner Contest 373</h1><h2 id="G-No-Cross-Matching"><a href="#G-No-Cross-Matching" class="headerlink" title="G - No Cross Matching"></a>G - No Cross Matching</h2><p>一定存在解。当距离和最小时一定是一组可行解，跑最小费用最大流。</p>
+<p>或者一直重复寻找两个相交的线段，将端点互换。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> i64 = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><br><span class="hljs-keyword">using</span> T = <span class="hljs-type">int</span>;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Point</span> &#123;<br>    T x;<br>    T y;<br>    <span class="hljs-built_in">Point</span>(T x = <span class="hljs-number">0</span>, T y = <span class="hljs-number">0</span>) : <span class="hljs-built_in">x</span>(x), <span class="hljs-built_in">y</span>(y)<br>    &#123;<br>    &#125;<br><br>    Point &amp;<span class="hljs-keyword">operator</span>+=(<span class="hljs-type">const</span> Point &amp;p)<br>    &#123;<br>        x += p.x, y += p.y;<br>        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>    &#125;<br>    Point &amp;<span class="hljs-keyword">operator</span>-=(<span class="hljs-type">const</span> Point &amp;p)<br>    &#123;<br>        x -= p.x, y -= p.y;<br>        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>    &#125;<br>    Point &amp;<span class="hljs-keyword">operator</span>*=(<span class="hljs-type">const</span> T &amp;v)<br>    &#123;<br>        x *= v, y *= v;<br>        <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>    &#125;<br>    <span class="hljs-keyword">friend</span> Point <span class="hljs-keyword">operator</span>-(<span class="hljs-type">const</span> Point &amp;p)<br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(-p.x, -p.y);<br>    &#125;<br>    <span class="hljs-keyword">friend</span> Point <span class="hljs-keyword">operator</span>+(Point lhs, <span class="hljs-type">const</span> Point &amp;rhs)<br>    &#123;<br>        <span class="hljs-keyword">return</span> lhs += rhs;<br>    &#125;<br>    <span class="hljs-keyword">friend</span> Point <span class="hljs-keyword">operator</span>-(Point lhs, <span class="hljs-type">const</span> Point &amp;rhs)<br>    &#123;<br>        <span class="hljs-keyword">return</span> lhs -= rhs;<br>    &#125;<br>    <span class="hljs-keyword">friend</span> Point <span class="hljs-keyword">operator</span>*(Point lhs, <span class="hljs-type">const</span> T &amp;rhs)<br>    &#123;<br>        <span class="hljs-keyword">return</span> lhs *= rhs;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function">T <span class="hljs-title">cross</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;a, <span class="hljs-type">const</span> Point &amp;b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> a.x * b.y - a.y * b.x;<br>&#125;<br><br><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-8</span>;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">sign</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span> <span class="hljs-comment">// 符号函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">fabs</span>(x) &lt; eps)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">segment_intersection</span><span class="hljs-params">(Point a1, Point a2, Point b1, Point b2)</span> <span class="hljs-comment">// 没有判断在一条直线上，要先做快速排斥</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> c1 = <span class="hljs-built_in">cross</span>(a2 - a1, b1 - a1), c2 = <span class="hljs-built_in">cross</span>(a2 - a1, b2 - a1);<br>    <span class="hljs-type">double</span> c3 = <span class="hljs-built_in">cross</span>(b2 - b1, a2 - b1), c4 = <span class="hljs-built_in">cross</span>(b2 - b1, a1 - b1);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(c1) * <span class="hljs-built_in">sign</span>(c2) &lt;= <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">sign</span>(c3) * <span class="hljs-built_in">sign</span>(c4) &lt;= <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    std::cin &gt;&gt; n;<br>    <span class="hljs-function">std::vector&lt;Point&gt; <span class="hljs-title">a</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span>, <span class="hljs-title">b</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        std::cin &gt;&gt; a[i].x &gt;&gt; a[i].y;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        std::cin &gt;&gt; b[i].x &gt;&gt; b[i].y;<br>    &#125;<br><br>    <span class="hljs-function">std::vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    std::<span class="hljs-built_in">iota</span>(ans.<span class="hljs-built_in">begin</span>(), ans.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);<br><br>    <span class="hljs-keyword">auto</span> check = [&amp;]() -&gt; <span class="hljs-type">bool</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">segment_intersection</span>(a[i], b[ans[i]], a[j], b[ans[j]])) &#123;<br>                    std::<span class="hljs-built_in">swap</span>(ans[i], ans[j]);<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;;<br><br>    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">check</span>())<br>        ;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        std::cout &lt;&lt; ans[i] &lt;&lt; <span class="hljs-string">&quot; \n&quot;</span>[i == n];<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    std::ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    std::cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br><br>    <span class="hljs-type">int</span> t = <span class="hljs-number">1</span>;<br>    <span class="hljs-comment">// std::cin &gt;&gt; t;</span><br>    <span class="hljs-keyword">while</span> (t--)<br>        <span class="hljs-built_in">solve</span>();<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -302,20 +304,13 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="category-chain-item">竞赛</a>
+  <a href="/categories/AtCoder/" class="category-chain-item">AtCoder</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/" class="category-chain-item">算法和模板</a>
+  <a href="/categories/AtCoder/AtCoder-Beginner-Contest/" class="category-chain-item">AtCoder Beginner Contest</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/%E7%AE%97%E6%B3%95%E5%92%8C%E6%A8%A1%E6%9D%BF/Number-Theory/" class="category-chain-item">Number Theory</a>
-  
-  
-
   
 
   
@@ -336,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>FloorSum</div>
-      <div>http://example.com/2024/10/03/FloorSum/</div>
+      <div>AtCoder Beginner Contest 373</div>
+      <div>http://example.com/2024/10/05/AtCoder-Beginner-Contes-373/</div>
     </div>
     <div class="license-meta">
       
@@ -349,7 +344,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月3日</div>
+          <div>2024年10月5日</div>
         </div>
       
       
@@ -381,18 +376,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/05/AtCoder-Beginner-Contes-373/" title="AtCoder Beginner Contest 373">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">AtCoder Beginner Contest 373</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/26/The-2024-ICPC-Asia-East-Continent-Online-Contest-II/" title="The 2024 ICPC Asia East Continent Online Contest (II)">
-                        <span class="hidden-mobile">The 2024 ICPC Asia East Continent Online Contest (II)</span>
+                      <a href="/2024/10/03/FloorSum/" title="FloorSum">
+                        <span class="hidden-mobile">FloorSum</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -412,8 +401,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/10/03/FloorSum/';
-          this.page.identifier = '/2024/10/03/FloorSum/';
+          this.page.url = 'http://example.com/2024/10/05/AtCoder-Beginner-Contes-373/';
+          this.page.identifier = '/2024/10/05/AtCoder-Beginner-Contes-373/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
